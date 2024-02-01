@@ -1,5 +1,5 @@
-import Button from '../../ui/Button';
 import { formatCurrency } from '../../utils/helpers';
+import PizzaCounter from '../common/components/PizzaCounter';
 
 const CartItem = ({ item }) => {
   const { pizzaId, name, quantity, totalPrice } = item || {};
@@ -13,7 +13,7 @@ const CartItem = ({ item }) => {
         <p className="text-sm font-bold">
           {formatCurrency(totalPrice)}
         </p>
-        <Button type="small">Remove</Button>
+        <PizzaCounter id={pizzaId}>{quantity}</PizzaCounter>
       </div>
     </li>
   );
