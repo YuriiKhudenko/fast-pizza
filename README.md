@@ -1,8 +1,25 @@
-# React + Vite
+# Fast Pizza
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Fast Pizza is a web application that simulates ordering pizzas from a fictional API. Users can create accounts, browse a menu of delicious pizzas, add them to their cart, adjust quantities, and remove items.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18**: The core library for building dynamic user interfaces.
+- **Redux Toolkit**: A state management solution for predictable state changes.
+- **React Router (v6.4+)**: Used for navigation and data loading, enhancing the user experience.
+- **Tailwind CSS**: A utility-first CSS framework for creating stylish and responsive designs.
+
+## Key Features
+
+- **User Authentication**: Create an account or log in to start ordering pizzas.
+- **Menu Selection**: Browse a variety of pizzas with descriptions and prices.
+- **Shopping Cart**: Add pizzas to your cart, change quantities, and remove items.
+- **Order Placement**: Place an order with the selected pizzas.
+- **Responsive Design**: Enjoy a seamless experience on various screen sizes.
+
+## Installation and Usage
+
+1. Clone the repository: `git clone https://github.com/YuriiKhudenko/fast-pizza`
+2. Navigate to the project directory: `cd fast-pizza`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm run dev`
