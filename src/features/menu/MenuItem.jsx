@@ -1,9 +1,30 @@
+import { useDispatch, useSelector } from 'react-redux';
+
 import Button from '../../ui/Button';
 import { formatCurrency } from '../../utils/helpers';
+import { addItem, getCurrentQuantityById } from '../cart/cartSlice';
+import PizzaCounter from '../common/components/PizzaCounter';
 
 function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } =
     pizza;
+
+  const dispatch = useDispatch();
+  const currentQuantity = useSelector(getCurrentQuantityById(id));
+
+  const handleAddToCart = () => {
+    if (pizza) {
+      dispatch(
+        addItem({
+          pizzaId: id,
+          name,
+          quantity: 1,
+          unitPrice,
+          totalPrice: unitPrice * 1,
+        }),
+      );
+    }
+  };
 
   return (
     <li className="flex gap-4 py-2">
@@ -26,9 +47,17 @@ function MenuItem({ pizza }) {
             </p>
           )}
           <div className="ml-auto">
-            <Button type="small" disabled={soldOut}>
-              Add to cart
-            </Button>
+            {currentQuantity ? (
+              <PizzaCounter id={id}>{currentQuantity}</PizzaCounter>
+            ) : !soldOut ? (
+              <Button
+                type="small"
+                disabled={soldOut}
+                onClick={handleAddToCart}
+              >
+                Add to cart
+              </Button>
+            ) : null}
           </div>
         </div>
       </div>

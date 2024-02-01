@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 function SearchOrder() {
@@ -21,7 +22,7 @@ function SearchOrder() {
     <form onSubmit={handleSubmit}>
       <input
         placeholder="Search order #"
-        className="w-40 rounded-full bg-yellow-100 px-3 py-2 text-sm transition-all duration-500 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-stone-300 sm:w-64 sm:px-4 sm:focus:w-72"
+        className="w-40 rounded-full border bg-white px-3 py-2 text-sm transition-all duration-500 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-stone-300 sm:w-64 sm:px-4 sm:focus:w-72"
         type="search"
         value={query}
         onChange={handleSearch}

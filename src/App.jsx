@@ -2,15 +2,17 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from 'react-router-dom';
-import Home from './ui/Home';
-import Menu, { loader as menuLoader } from './features/menu/Menu';
+
 import Cart from './features/cart/Cart';
-import Order, { loader as orderLoader } from './features/order/Order';
+import Menu, { loader as menuLoader } from './features/menu/Menu';
 import CreateOrder, {
   action as createOrderAction,
 } from './features/order/CreateOrder';
+import { action as priorityAction } from './features/order/MakePriority';
+import Order, { loader as orderLoader } from './features/order/Order';
 import AppLayout from './ui/AppLayout';
 import Error from './ui/Error';
+import Home from './ui/Home';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,7 @@ const router = createBrowserRouter([
         path: '/order/:orderId',
         element: <Order />,
         loader: orderLoader,
+        action: priorityAction,
         errorElement: <Error />,
       },
       {
@@ -48,11 +51,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <RouterProvider router={router}>
-      <div>Hello Vite</div>;
-    </RouterProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
